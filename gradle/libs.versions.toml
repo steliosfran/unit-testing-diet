@@ -1,0 +1,37 @@
+[versions]
+agp = "8.1.2"
+org-jetbrains-kotlin-android = "1.8.10"
+core-ktx = "1.12.0"
+lifecycle-runtime-ktx = "2.6.2"
+activity-compose = "1.7.2"
+compose-bom = "2023.09.02"
+rxjava = "3.1.8"
+koin-bom = "3.5.1"
+kotest-bom = "5.7.2"
+junit-bom = "5.9.3"
+
+[libraries]
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+ui = { group = "androidx.compose.ui", name = "ui" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+material3 = { group = "androidx.compose.material3", name = "material3" }
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
+koin-core = { module = "io.insert-koin:koin-core" }
+koin-test = { module = "io.insert-koin:koin-test" }
+koin-android = { module = "io.insert-koin:koin-android" }
+kotest-bom = { group = "io.kotest", name = "kotest-bom", version.ref = "kotest-bom" }
+kotest = { module = "io.kotest:kotest-runner-junit5" }
+rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
+junit-jupiter-bom = { module = "org.junit:junit-bom", version.ref = "junit-bom" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
+
+[plugins]
+com-android-application = { id = "com.android.application", version.ref = "agp" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Unit Testing Diet</string>
+    <string name="chat_content_1">This is a sample chat application that demonstrates how to follow Behavior-Driven Development (BDD), by writing unit tests that test the behavior that a user performs and the outcome that they perceive, without testing implementation details.</string>
+    <string name="chat_content_2">The tests are written in the Given-When-Then style and they cover the ViewModel, UseCase, and Repository layers, without using mocks.</string>
+    <string name="chat_content_3">Examine the structure of the tests in the ChatViewModelSpec.kt file to see how this works in practice.</string>
+    <string name="chat_content_4">For a comprehensive guide on how to follow this methodology, please refer to the \"Unit Testing Diet\" blog post.</string>
+</resources>
