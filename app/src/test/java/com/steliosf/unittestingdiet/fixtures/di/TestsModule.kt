@@ -6,6 +6,6 @@ import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
-val fakeChatDataSourceModule = module {
+val testsModule = module {
     singleOf(::FakeChatDataSource) bind ChatDataSource::class
 }

@@ -11,12 +11,14 @@ For a comprehensive guide on how to follow this methodology, please refer to the
 ## Setup
 
 1. Clone the repository
-2. Examine the structure of the tests in the `ChatViewModelSpec.kt` file.
+2. Checkout the `main` branch for Kotlin Flow or `rxjava` for RxJava
+3. Examine the structure of the tests in the `ChatViewModelSpec.kt` file.
 
 ## Libraries Used
 
 - Dependency Injection: [Koin](https://github.com/InsertKoinIO/koin)
 - Testing Framework: [Kotest](https://github.com/kotest/kotest)
+- Reactive Framework: Both [Kotlin Flow](https://github.com/Kotlin/kotlinx.coroutines) and [RxJava](https://github.com/ReactiveX/RxJava) are supported
 
 ## Contact
 

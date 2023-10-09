@@ -19,8 +19,7 @@ class ChatViewModel(
 
     val state: Observable<State>
         get() = getChatMessagesUseCase(user).map {
-            val messageUiModelList = MessageUiModelMapper.fromMessagesList(it)
-            State(messageUiModelList)
+            State(MessageUiModelMapper.fromMessagesList(it))
         }
 
     fun onTextMessageSent(text: String) {
