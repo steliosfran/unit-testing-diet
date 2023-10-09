@@ -3,37 +3,25 @@ package com.steliosf.unittestingdiet.data.repository
 import com.steliosf.unittestingdiet.data.datasource.ChatDataSource
 import com.steliosf.unittestingdiet.domain.model.Message
 import com.steliosf.unittestingdiet.domain.model.User
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.subjects.BehaviorSubject
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.flow
 
 class ChatMessagesRepository(
     private val chatDataSource: ChatDataSource
 ) {
+    private val _cachedChatMessages = MutableStateFlow<List<Message>>(emptyList())
 
-    private val cachedChatMessages: BehaviorSubject<List<Message>> = BehaviorSubject.create()
-
-    fun getChatMessages(user: User): Observable<List<Message>> {
-        return if (cachedChatMessages.hasValue()) cachedChatMessages else {
-            loadExistingChatMessages(user).andThen(cachedChatMessages)
+    fun getChatMessages(user: User): Flow<List<Message>> = flow {
+        if (_cachedChatMessages.value.isEmpty()) {
+            _cachedChatMessages.emit(chatDataSource.getChatMessages(user))
         }
+        emitAll(_cachedChatMessages)
     }
 
-    fun sendChatMessage(message: Message, user: User): Completable {
-        return chatDataSource.sendChatMessage(message, user)
-            .doOnSubscribe {
-                cachedChatMessages.onNext(getCurrentMessagesList() + message)
-            }.doOnComplete { /* .. */ }
-    }
-
-    private fun loadExistingChatMessages(user: User): Completable {
-        return chatDataSource.getChatMessages(user)
-            .doOnSuccess {
-                cachedChatMessages.onNext(it)
-            }.ignoreElement()
-    }
-
-    private fun getCurrentMessagesList(): List<Message> {
-        return cachedChatMessages.value ?: emptyList()
+    suspend fun sendChatMessage(message: Message, user: User) {
+        _cachedChatMessages.apply { value = value + message }
+        chatDataSource.sendChatMessage(message, user)
     }
 }

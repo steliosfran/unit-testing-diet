@@ -1,5 +1,7 @@
 package com.steliosf.unittestingdiet.di
 
+import com.steliosf.unittestingdiet.common.CoroutineDispatcherProvider
+import com.steliosf.unittestingdiet.common.DefaultCoroutineDispatcherProvider
 import com.steliosf.unittestingdiet.data.repository.ChatMessagesRepository
 import com.steliosf.unittestingdiet.domain.usecase.GetChatMessagesUseCase
 import com.steliosf.unittestingdiet.domain.usecase.SendTextMessageUseCase
@@ -14,6 +16,7 @@ val appModule = module {
 
     factoryOf(::GetChatMessagesUseCase)
     factoryOf(::SendTextMessageUseCase)
+    factoryOf<CoroutineDispatcherProvider>(::DefaultCoroutineDispatcherProvider)
 
     singleOf(::ChatMessagesRepository)
 }

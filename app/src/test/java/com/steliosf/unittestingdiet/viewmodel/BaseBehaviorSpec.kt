@@ -1,7 +1,7 @@
 package com.steliosf.unittestingdiet.viewmodel
 
 import com.steliosf.unittestingdiet.di.appModule
-import com.steliosf.unittestingdiet.fixtures.di.fakeChatDataSourceModule
+import com.steliosf.unittestingdiet.fixtures.di.testsModule
 import io.kotest.core.spec.IsolationMode
 import io.kotest.core.spec.Spec
 import io.kotest.core.spec.style.BehaviorSpec
@@ -12,7 +12,7 @@ import org.koin.test.KoinTest
 
 open class BaseBehaviorSpec : BehaviorSpec(), KoinTest {
 
-    private val modulesToLoad: List<Module> = appModule + fakeChatDataSourceModule
+    private val modulesToLoad: List<Module> = appModule + testsModule
 
     override fun isolationMode() = IsolationMode.InstancePerLeaf
 

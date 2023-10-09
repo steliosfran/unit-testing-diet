@@ -9,6 +9,7 @@ rxjava = "3.1.8"
 koin-bom = "3.5.1"
 kotest-bom = "5.7.2"
 junit-bom = "5.9.3"
+kotlinx-coroutines-test = "1.7.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -31,6 +32,7 @@ rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
 junit-jupiter-bom = { module = "org.junit:junit-bom", version.ref = "junit-bom" }
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }

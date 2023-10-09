@@ -77,6 +77,7 @@ dependencies {
     testImplementation(libs.rxjava)
     testImplementation(platform(libs.junit.jupiter.bom))
     testImplementation(libs.junit.jupiter.api)
+    testImplementation(libs.kotlinx.coroutines.test)
 
     testRuntimeOnly(libs.junit.jupiter.engine)
 

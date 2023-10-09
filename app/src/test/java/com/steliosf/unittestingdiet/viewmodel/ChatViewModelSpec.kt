@@ -24,10 +24,9 @@ class ChatViewModelSpec : BaseBehaviorSpec() {
         beforeSpec { fakeDataSourceResponse() }
 
         Given("I am in chat") {
-            val stateObserver = viewModel.state.test()
 
             Then("The existing messages are displayed") {
-                stateObserver.values().last() shouldBeEqual ChatViewModel.State(
+                viewModel.state.value shouldBeEqual ChatViewModel.State(
                     messages = listOf(
                         MessageUiModel(
                             text = "1st message",
@@ -47,7 +46,7 @@ class ChatViewModelSpec : BaseBehaviorSpec() {
                     textMessage = "2nd message"
 
                     Then("It is displayed") {
-                        stateObserver.values().last() shouldBeEqual ChatViewModel.State(
+                        viewModel.state.value shouldBeEqual ChatViewModel.State(
                             messages = listOf(
                                 MessageUiModel(
                                     text = "1st message",
@@ -66,7 +65,7 @@ class ChatViewModelSpec : BaseBehaviorSpec() {
                     textMessage = (1..180).joinToString("") { "a" }
 
                     Then("It is not displayed") {
-                        stateObserver.values().last() shouldBeEqual ChatViewModel.State(
+                        viewModel.state.value shouldBeEqual ChatViewModel.State(
                             messages = listOf(
                                 MessageUiModel(
                                     "1st message",
