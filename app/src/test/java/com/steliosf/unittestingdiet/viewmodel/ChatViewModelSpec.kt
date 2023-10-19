@@ -21,16 +21,14 @@ class ChatViewModelSpec : BaseBehaviorSpec() {
     }
 
     init {
-        beforeSpec { fakeDataSourceResponse() }
+        Given("I have exchanged messages with a user") {
+            fakeDataSourceResponse()
 
-        Given("I am in chat") {
-
-            Then("The existing messages are displayed") {
+            Then("They are displayed") {
                 viewModel.state.value shouldBeEqual ChatViewModel.State(
                     messages = listOf(
                         MessageUiModel(
-                            text = "1st message",
-                            type = Message.Type.Received
+                            text = "1st message", type = Message.Type.Received
                         )
                     )
                 )
@@ -49,12 +47,10 @@ class ChatViewModelSpec : BaseBehaviorSpec() {
                         viewModel.state.value shouldBeEqual ChatViewModel.State(
                             messages = listOf(
                                 MessageUiModel(
-                                    text = "1st message",
-                                    type = Message.Type.Received
+                                    text = "1st message", type = Message.Type.Received
                                 ),
                                 MessageUiModel(
-                                    text = "2nd message",
-                                    type = Message.Type.Pending
+                                    text = "2nd message", type = Message.Type.Pending
                                 )
                             )
                         )
@@ -68,8 +64,7 @@ class ChatViewModelSpec : BaseBehaviorSpec() {
                         viewModel.state.value shouldBeEqual ChatViewModel.State(
                             messages = listOf(
                                 MessageUiModel(
-                                    "1st message",
-                                    Message.Type.Received
+                                    "1st message", Message.Type.Received
                                 )
                             )
                         )

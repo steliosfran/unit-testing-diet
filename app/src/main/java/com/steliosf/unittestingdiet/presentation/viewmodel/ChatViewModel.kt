@@ -38,7 +38,9 @@ class ChatViewModel(
         }
     }
 
-    fun onTextMessageSent(text: String) = viewModelScope.launch(coroutineDispatcherProvider.main) {
+    fun onTextMessageSent(text: String) = viewModelScope.launch(
+        coroutineDispatcherProvider.main
+    ) {
         sendTextMessageUseCase(text, user)
     }
 }
